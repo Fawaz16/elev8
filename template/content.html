@@ -1,0 +1,193 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="This website showcase 4 must-read blog every week"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grandians - Blog Webpage</title>
+    <link rel="stylesheet" href="{% static './assets/style.css' %}" />
+    <link rel="stylesheet" href="{% static './assets/content.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="container navbar">
+         <h1><a href="{% url 'home' %}">Guardians</a></h1>
+
+        <!-- <ul class="navlinks">
+          <li>Home</li>
+          <li>Top</li>
+          <li>Categories</li>
+          <li>About</li>
+        
+        </ul> -->
+
+        <button class="away">
+          <a href="{% url 'home' %}"> Log Out </a>
+        </button>
+
+        <div class="hamburger">
+          <div class="line1"></div>
+          <div class="line1"></div>
+          <div class="line1"></div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="ff_content">
+        <div class="person">
+          <div class="by">
+            <a href="{% static 'images/blog1.jpg' %}">
+            <img src="{% static 'images/avatar.jpg' %}" alt="" />
+            <div class="name">
+              <a href="{% url 'profile' %}">
+              <h4>By: <span>{{topic.owner.username}}</span></h4>
+              <i>2 mins ago</i>
+              </a>
+            </div>
+            
+          </div>
+
+          <div class="title">
+            <h2>{{topic.title}}</h2>
+            <p>Thing you need to learn - What to do</p>
+
+            <img src="{{topic.image.url}}" alt="blog" />
+          </div>
+
+          <div class="content_itself">
+            <p class="main_script">
+               
+               {{topic.body}} 
+                
+              <p></p>
+            <!-- </p> -->
+            <h4>{{new_topic.title}}</h4>
+            <p>{{new_topic.body}}</p>
+            <p>{{new_topic.body}}</p>
+
+            <hr>
+
+            <div class="icon">
+              <div class="width_c">
+              <img src="{% static 'svg/comment-svgrepo-com.svg' %}" onclick="commentbox()">
+              </div>
+              <div class="width_c">
+                <a href="{% url 'email' %}">
+              <img src="{% static 'svg/share-svgrepo-com.svg' %}" alt="">
+              </a>
+              </div>
+            </div>
+
+            <form action="{% url 'content' topic.id %}" class="comment_sec" method="POST">
+              {%csrf_token%}
+              <textarea name="user_comment" id="" cols="30" rows="10"></textarea>
+              <button type="submit">Comment</button>
+            </form>
+
+            <div class="comment">
+              <h2>Comments</h2>
+              {% for comment in comments%}
+              <div class="p_person">
+                <img src="{% static 'images/avatar.jpg' % }" alt="">
+
+                <div class="c_name">
+                  <h3>{{comment.owner}}</h3>
+                 
+                  <p> {{comment.body}} </p>
+                  <small>{{comment.date_created|timesince}}</small>
+                </div>
+              </div>
+              {%endfor%}
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside>
+        <a href="{% url 'profile' %}">
+       <div class="profile">
+         <img src="{% static 'images/avatar.jpg'  %}" alt="">
+         <h2>Makinde Sodiq</h2>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus qui repellat delectus illum architecto optio libero, possimus, repudiandae natus ullam alias, laudantium ab. Ut voluptate nam quam, nemo facilis quasi.</p>
+       </div>
+       </a>
+       <hr>
+
+
+       <div class="related">
+         <h3>Related Post</h3>
+         <div class="rt">
+           <img src="{% static 'images/blog2.jpg' %}" alt="">
+           <h5>Life Hack - How to manage your time as a developer</h5>
+         </div>
+         
+       </div>
+
+      </aside>
+    </main>
+
+
+    <footer>
+      <div class="container">
+        <div class="foot">
+          <h3>Would you like to join our Newsletter</h3>
+          <div class="new_mail">
+            <form action="">
+              <input type="text" placeholder="Email Address" />
+              <button type="submit">Join</button>
+            </form>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+            sed nobis accusamus corrupti! Tempora aliquid iure, velit beatae
+            ullam optio molestias consequatur, eius placeat vel quod a quaerat
+            quas praesentium?
+          </p>
+          <hr />
+
+          <div class="copyr">
+            <ul class="socials">
+              <li>
+                <a href=""><img src="{% static './svg/github-svgrepo-com.svg' %}" alt="" /></a>
+              </li>
+              <li>
+                <a href=""
+                  ><img src="{% static './svg/facebook-svgrepo-com.svg' %}" alt=""
+                /></a>
+              </li>
+              <li>
+                <a href=""
+                  ><img src="{% static './svg/linkedin-svgrepo-com.svg' %}" alt=""
+                /></a>
+              </li>
+              <li>
+                <a href=""
+                  ><img src="{% static  './svg/instagram-svgrepo-com.svg'  % }" alt=""
+                /></a>
+              </li>
+              <li>
+                <a href=""
+                  ><img src="{% static './svg/twitter-svgrepo-com.svg' %}" alt=""
+                /></a>
+              </li>
+            </ul>
+
+            <p>&copy; 2022 Makinde All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="{% static './assets/script.js' %}"></script>
+  </body>
+</html>

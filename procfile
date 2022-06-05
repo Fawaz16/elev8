@@ -1,0 +1,1 @@
+web: gunicorn Elev8 .wsgi --log-file -
