@@ -13,7 +13,7 @@
   --primary-color: #ffffff;
   --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   --logo: #0f14a8;
-  --mini-blue: rgba(15, 20, 168, 0.6);
+  --mini-blue: rgba(168, 15, 15, 0.6);
   --black: #333333;
 }
 
@@ -66,7 +66,7 @@ nav {
 }
 
 .navbar h1 a {
-  color: var(--logo);
+  color: rgb(209, 21, 21);
 }
 
 .navbar ul {
@@ -109,8 +109,8 @@ nav {
 .main_banner {
   margin-top: 60px;
   background: white;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.207703)), to(rgba(18, 118, 222, 0.55)));
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.207703) 0%, rgba(18, 118, 222, 0.55) 100%);
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.208)), to(rgba(255, 6, 6, 0.55)));
+  background: linear-gradient(0deg, rgba(255, 0, 0, 0.208) 0%, rgba(255, 0, 0, 0.55) 100%);
   min-height: 470px;
 }
 
@@ -133,18 +133,18 @@ nav {
 .main_banner .banner .inner h2 {
   font-size: 35px;
   font-weight: 800;
-  color: var(--mini-blue);
+  color: white;
 }
 
 .main_banner .banner .inner h2 span {
   font-size: 37px;
-  color: var(--logo);
+  color: white;
 }
 
 .main_banner .banner .inner p {
   text-align: left;
   margin: 10px 0;
-  color: rgba(83, 83, 77, 0.959);
+  color: rgba(255, 255, 255, 0.959);
 }
 
 .main_banner .banner .search_field {
@@ -173,7 +173,7 @@ nav {
   font-weight: 600;
   border: 0;
   color: #ffffff;
-  background-color: var(--logo);
+  background-color: red;
 }
 
 .main_blog {
@@ -186,12 +186,12 @@ nav {
 }
 
 .main_blog .first_blog .component1 {
-  color: #333333;
+  color: #c40d0d;
 }
 
 .main_blog .first_blog .component1 label {
-  background-color: var(--mini-blue);
-  color: rgba(49, 31, 56, 0.87);
+background-color: rgb(228, 31, 31);
+  color: rgba(255, 255, 255, 0.87);
   font-weight: 800;
   padding: 5px 15px;
   border-radius: 50px;

@@ -32,9 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-     ### my apps
+     
     'ELEV8APP.apps.Elev8AppConfig',
-    # 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,7 +128,7 @@ STATICFILES_DIRS=['static/']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRCT_URL= 'login'
+LOGOUT_REDIRCT_URL= 'home'
 
 LOGIN_URL='login'
 

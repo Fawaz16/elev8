@@ -22,7 +22,7 @@
   <body>
     <nav>
       <div class="container navbar">
-         <h1><a href="{% url 'home' %}">Guardians</a></h1>
+         <h1><a href="{% url 'home' %}">Zino daily post</a></h1>
 
         <!-- <ul class="navlinks">
           <li>Home</li>
@@ -49,11 +49,11 @@
         <div class="person">
           <div class="by">
             <a href="{% static 'images/blog1.jpg' %}">
-            <img src="{% static 'images/avatar.jpg' %}" alt="" />
+            <img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" alt="" />
             <div class="name">
               <a href="{% url 'profile' %}">
               <h4>By: <span>{{topic.owner.username}}</span></h4>
-              <i>2 mins ago</i>
+              <i>   {{topic.date_created|timesince}}</i>
               </a>
             </div>
             
@@ -73,10 +73,7 @@
                 
               <p></p>
             <!-- </p> -->
-            <h4>{{new_topic.title}}</h4>
-            <p>{{new_topic.body}}</p>
-            <p>{{new_topic.body}}</p>
-
+            
             <hr>
 
             <div class="icon">
@@ -84,7 +81,7 @@
               <img src="{% static 'svg/comment-svgrepo-com.svg' %}" onclick="commentbox()">
               </div>
               <div class="width_c">
-                <a href="{% url 'email' %}">
+                <a href="">
               <img src="{% static 'svg/share-svgrepo-com.svg' %}" alt="">
               </a>
               </div>
@@ -100,7 +97,7 @@
               <h2>Comments</h2>
               {% for comment in comments%}
               <div class="p_person">
-                <img src="{% static 'images/avatar.jpg' % }" alt="">
+                <img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" alt="">
 
                 <div class="c_name">
                   <h3>{{comment.owner}}</h3>
@@ -115,10 +112,10 @@
         </div>
       </div>
       <aside>
-        <a href="{% url 'profile' %}">
+        <a href="">
        <div class="profile">
-         <img src="{% static 'images/avatar.jpg'  %}" alt="">
-         <h2>Makinde Sodiq</h2>
+         <img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" alt="">
+         <h2>Fawaz</h2>
          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus qui repellat delectus illum architecto optio libero, possimus, repudiandae natus ullam alias, laudantium ab. Ut voluptate nam quam, nemo facilis quasi.</p>
        </div>
        </a>

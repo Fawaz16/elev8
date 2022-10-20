@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{% static './assets/style.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="./assets/bootstrap-5.2.0-dist//css/bootstrap.min.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
       rel="stylesheet"
@@ -21,7 +22,8 @@
   <body>
     <nav>
       <div class="container navbar">
-        <h1><a href="{% url 'home' %}">Guardians</a></h1>
+        <h1><a href="{% url 'home' %}">Zino daily post</a></h1>
+       
 
         <!-- <ul class="navlinks">
           <li><a href="{% url 'profile'%}">Profile</a></li>
@@ -31,11 +33,12 @@
       
         
         {% if user.is_authenticated %}
-        <button class="away"><a href="{% url 'logout' %}">log out</a></button>
-        <span>{{user.user}}</span>
+        
+        <button class="away"><a href="{% url 'login' %}">log out</a></button>
+        <span>{{user.user}} </span>
         {% else%}
-        <button class="away"><a href="./forms/sign.html">Sign In</a></button>
-        <button class="away"><a href="./forms/log.html">Sign In</a></button>
+        <button class="away"><a href="{%url 'signup' %}">Sign up</a></button>
+        <button class="away"><a href="{%url 'login' %}">log in</a></button>
         {% endif %}
 
         <div class="hamburger">
@@ -49,13 +52,13 @@
     <div class="main_banner">
       <div class="container banner">
         <div class="inner">
+          
           <h2>
-            Guardians Entertaining
-            <span>Blog</span>
+          Zino daily
+            <span>Post</span>
           </h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-            reiciendis voluptates repellat nisi perspiciatis
+            <span class="auto"></span>
           </p>
 
           <div class="search_field">
@@ -77,14 +80,14 @@
         <img src="{{ topic.image.url }}" class="main_pic" />
 
         <div class="component1">
-          <a href="">
+          <a href="{%url 'content' topic.id %}">
             <label for="">Newest</label>
             <h3>{{topic.title}}</h3>
             <p>{{topic.body}}</p>
 
             <div class="by">
               <a href="{% url 'profile' %}">
-                <img src="{% static 'images/avatar.jpg' %}" alt="" />
+                <img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" alt="" />
                 <div class="name">
                   <h4>By: <span>{{topic.owner.username}}</span></h4>
                   <i>2 mins ago</i>
@@ -107,14 +110,14 @@
           />
 
           <div class="component1">
-            <label for="" style="background-color: rgb(224, 189, 61)">></label>
+            <label for="" style="background-color: rgb(224, 189, 61)"></label>
             <a href="{% url 'content' topic.id %}">
               <h3>{{topic.title}}</h3>
               <p>{{topic.body}}</p>
 
               <div class="by">
                 <a href="{% url 'profile' %}">
-                  <img src="{% static ' images/avatar.jpg' %}" alt="" />
+                  <img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" alt="" />
                   <div class="name">
                     <h4>By: <span>{{topic.owner.username}}</span></h4>
                     <i>1 week ago</i>
@@ -206,6 +209,21 @@
         </div>
       </div>
     </footer>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" integrity="sha512-3J8teBiHrSyaaRBajZyIEtpDsXdPq1gsznKWIVb5CnorQuFhjWGhWe54z8YNnHHr7MZuExb9m5kvf964HiT1Sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var typed= new Typed(".auto",{
+            strings:[" Welcome to Zino daily post, Where we plan on keeping you in touch with latest news and articles.  Here are some of the latest news you should check out. "],
+            typeSpeed:20,
+            backSpeed:50,
+        })
+    </script>
+
+    
     <script src="{% static './assets/script.js' %}"></script>
   </body>
 </html>
+
