@@ -5,6 +5,10 @@
   --mini-blue: rgba(15, 20, 168, 0.6);
   --black: #333333;
 }
+.away{
+ 
+  display: block;
+}
 
 p {
   font-size: 18px;
